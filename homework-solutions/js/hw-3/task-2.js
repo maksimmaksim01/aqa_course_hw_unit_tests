@@ -4,3 +4,9 @@
 n + nn + nnn, где n не перемножаются, а конкатенируются
 
 */
+let n = 9;
+let nString = n.toString();
+
+console.log(n + Number(nString + nString) + Number(nString + nString + nString));
+//or
+console.log(n + Number(n + '' + n) + Number(n + '' + n + n));
