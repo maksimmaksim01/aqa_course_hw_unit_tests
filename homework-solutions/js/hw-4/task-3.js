@@ -10,10 +10,8 @@ let age;
 age = ["10", 17, "18", 19, "59", 60, "61", null];
 
 age.forEach((age) => {
-  if (!(typeof age === 'number' || typeof age === 'string')) throw new Error('Incorrect data type');
-
-  if (typeof age === 'string') parseInt(age);
-
+  if (isNaN(age)) throw new Error('Incorrect data type');
+  age = +age; // Number(age)
   if (age < minAge) {
     console.log(`You don't have access cause your age is ${age}. It's less then ${minAge}.`);
   } else if (age >= minAge && age <= maxAge) {
