@@ -19,7 +19,7 @@
   age = [10, 17, 18, 19, 59, 60, 61];
 
   age.forEach(age => {
-      if (!(typeof age === "number")) throw new Error('Incorrect data type');
+      if (typeof age !== "number") throw new Error('Incorrect data type');
 
       if (age < minAge) {
         console.log(`You don't have access cause your age is ${age}. It's less then ${minAge}.`);
