@@ -8,4 +8,28 @@
 */
 let unique;
 
+let evenNumbers = [];
+let oddNumbers = [];
+let tenSequentialNumbers = [];
+
+for (let i = 1; i <= 10; i++) {
+  tenSequentialNumbers.push(i);
+
+  if (i % 2 === 0) {
+    evenNumbers.push(i);
+  } else {
+    oddNumbers.push(i);
+  }
+}
+
+const testArray = [...tenSequentialNumbers, ...evenNumbers, ...oddNumbers];
+
+testArray.forEach((value) => {
+  if (testArray.indexOf(value) !== testArray.lastIndexOf(value)) {
+    testArray.splice(testArray.lastIndexOf(value), 1);
+  }
+});
+
+unique = testArray;
+
 export { unique };
