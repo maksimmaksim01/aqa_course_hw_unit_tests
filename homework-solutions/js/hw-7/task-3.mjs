@@ -9,7 +9,23 @@
 */
 
 function digitalRoot(number) {
-  // Ваш код
+  const stringOfNumbers = number.toString();
+  const numbersArray = stringOfNumbers.split('');
+  let totalAmount = 0;
+
+  if (numbersArray.length === 1) {
+    return number;
+  }
+
+  numbersArray.forEach((number) => {
+    totalAmount += parseInt(number);
+  });
+
+  if (totalAmount > 9) {
+    return digitalRoot(totalAmount);
+  }
+
+  return totalAmount;
 }
 
 export { digitalRoot };
