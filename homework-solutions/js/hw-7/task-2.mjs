@@ -4,18 +4,10 @@
 */
 
 function isPalindrom(word) {
-  if (typeof word === 'string') {
-    const lettersArray = word.split('');
-
-    for (let i = 0; i < lettersArray.length / 2; i++) {
-      if (lettersArray[i].toLowerCase() !== lettersArray[lettersArray.length - (i + 1)].toLowerCase()) {
-        return false;
-      }
-    }
-    return true;
-  } else {
+  if (typeof word !== 'string') {
     return false;
   }
+  return word.toLowerCase() === word.toLowerCase().split('').reverse().join('');
 }
 
 /*

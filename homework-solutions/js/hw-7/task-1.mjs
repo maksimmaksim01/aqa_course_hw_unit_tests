@@ -24,45 +24,16 @@ function mergeArrays(...arrays) {
   */
 
 function devideBy(sentence) {
-  const sentenceWords = sentence.split(' ');
+  const words = sentence.split(/\s+/).filter(Boolean);
 
-  deleteEmptyValues();
-
-  function deleteEmptyValues() {
-    if (sentenceWords.indexOf('') !== -1) {
-      for (let i = 0; i < sentenceWords.length; i++) {
-        if (sentenceWords[i] === '') {
-          sentenceWords.splice(i, 1);
-        }
-      }
-      deleteEmptyValues();
+  const transformedWords = words.map((word, index) => {
+    if (index === 0) {
+      return word.toLowerCase();
     }
-  }
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  });
 
-  for (let i = 0; i < sentenceWords.length; i++) {
-    const letterArray = sentenceWords[i].split('');
-
-    if (i === 0) {
-      for (let j = 0; j < letterArray.length; j++) {
-        letterArray[j] = letterArray[j].toLowerCase();
-      }
-    } else {
-      for (let j = 0; j < letterArray.length; j++) {
-        letterArray[j] = letterArray[j].toLowerCase();
-        letterArray[0] = letterArray[0].toUpperCase();
-      }
-    }
-
-    sentenceWords[i] = '';
-
-    for (const letter of letterArray) {
-      sentenceWords[i] += letter;
-    }
-
-    sentenceWords[i] = sentenceWords[i].toString();
-  }
-
-  return sentenceWords.join('_');
+  return transformedWords.join('_');
 }
 
 /*
@@ -77,12 +48,13 @@ function devideBy(sentence) {
 function fibonacci(n, arr = [0, 1]) {
   if (n === 0 || n === 1) {
     return n;
-  } else if (arr.length !== n) {
+  } else if (arr.length < n + 1) {
     arr.push(arr[arr.length - 1] + arr[arr.length - 2]);
-    fibonacci(n, arr);
+    return fibonacci(n, arr);
   }
 
-  return arr[arr.length - 1] + arr[arr.length - 2];
+  return arr.at(-1);
 }
+console.log(fibonacci(5));
 
 export { mergeArrays, fibonacci, devideBy };
