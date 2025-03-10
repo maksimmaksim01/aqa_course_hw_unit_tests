@@ -5,9 +5,17 @@
 
   Пример: const arr = [5,2,7,3,8,1,6] //4
 */
+const arr = [2, 3, 4, 5];
 
 function findMissingNumber(numbers) {
-  // Ваш код
+  const sortedNumbers = numbers.toSorted((a, b) => a - b);
+  if (sortedNumbers[0] !== 1) return 1;
+
+  return (
+    sortedNumbers.find((value, index, array) => {
+      return array[index] + 1 !== array[index + 1];
+    }) + 1
+  );
 }
 
 export { findMissingNumber };
