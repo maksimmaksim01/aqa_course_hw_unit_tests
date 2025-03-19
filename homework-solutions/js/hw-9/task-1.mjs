@@ -33,7 +33,7 @@ keyValuePairs = Object.entries(character).map(([key, value]) => {
 let hasSalaryKey1stOption;
 let hasSalaryKey2ndOption;
 
-hasSalaryKey1stOption = Object.keys(character).some((val) => val === 'salary');
+hasSalaryKey1stOption = 'salary' in character;
 hasSalaryKey2ndOption = Object.hasOwn(character, 'salary');
 
 export { keyWithFourChars, stringValues, hasSalaryKey1stOption, hasSalaryKey2ndOption, keyValuePairs, logSpy };
