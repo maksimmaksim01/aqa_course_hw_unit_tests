@@ -29,8 +29,9 @@ function getCharactersByAge(minAge) {
 
 function updateCharacter(name, newCharacter) {
   const charToUpdate = getCharacter(name);
-  charToUpdate.name = newCharacter.name;
-  charToUpdate.age = newCharacter.age;
+  const { name, age } = newCharacter;
+  charToUpdate.name = name ?? charToUpdate.name;
+  charToUpdate.age = age ?? charToUpdate.age;
 }
 
 function removeCharacter(name) {
