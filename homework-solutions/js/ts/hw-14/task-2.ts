@@ -8,8 +8,8 @@
 const arr = [1, 2, 3, 4, 5];
 console.log(arr.map((el, index) => el * index));
 
-function customMap<T>(arr: T[], callback: (el: T, index: number, arr: T[]) => T): T[] {
-  const newArr: T[] = [];
+function customMap<T,U>(arr: T[], callback: (el: T, index: number, arr: T[]) => U): U[] {
+  const newArr: U[] = [];
   for (let i = 0; i < arr.length; i++) {
     newArr.push(callback(arr[i], i, arr));
   }
