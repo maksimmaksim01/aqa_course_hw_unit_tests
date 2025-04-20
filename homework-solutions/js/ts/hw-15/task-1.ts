@@ -35,8 +35,8 @@ abstract class Vehicle implements IVehicle {
 
 class Car extends Vehicle {
   constructor(
-    public make: string,
-    public model: string,
+    make: string,
+    model: string,
     public year: number,
   ) {
     super(make, model);
